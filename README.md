@@ -22,3 +22,36 @@ Aplikasi web sederhana berbasis **Streamlit** untuk mendeteksi apakah isi sebuah
 - vectorizer.pkl # TF-IDF vectorizer
 - requirement.txt # Library yang dibutuhkan
 - README.md # Dokumentasi ini
+
+
+---
+
+## 🧪 Cara Menjalankan Aplikasi
+
+### 1. Clone Project
+
+```bash
+git clone https://github.com/yourusername/spam-detector.git
+cd spam-detector
+```
+
+### 2. (Opsional) Buat Virtual Environment
+
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Linux/Mac
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirement.txt
+```
+
+### 4. Jalankan Aplikasinya
+```bash
+streamlit run app.py
+```
