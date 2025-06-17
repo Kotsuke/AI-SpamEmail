@@ -38,6 +38,7 @@ cd AI-SpamEmail
 ### 2. (Opsional) Buat Virtual Environment
 
 ```bash
+//Hapus venv yang lama dan buat baru karena akan direktori akan menyangkut ke venv lama
 python -m venv venv
 # Windows
 venv\Scripts\activate
