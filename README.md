@@ -31,7 +31,7 @@ Aplikasi web sederhana berbasis **Streamlit** untuk mendeteksi apakah isi sebuah
 ### 1. Clone Project
 
 ```bash
-git clone https://github.com/kotsuke/AI-SpamEmail.git
+git clone https://github.com/Kotsuke/AI-SpamEmail.git
 cd AI-SpamEmail
 ```
 
