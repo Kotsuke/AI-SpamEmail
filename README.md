@@ -14,11 +14,11 @@ Aplikasi web sederhana berbasis **Streamlit** untuk mendeteksi apakah isi sebuah
 ---
 
 ## 📂 Struktur Proyek
-├── app.py # Aplikasi utama (Streamlit)
-├── train.py # Script training model AI
-├── spam.csv # Dataset global (Bahasa Inggris)
-├── email_spam_indo.csv # Dataset lokal (Bahasa Indonesia)
-├── spam_model.pkl # Model AI hasil training
-├── vectorizer.pkl # TF-IDF vectorizer
-├── requirement.txt # Library yang dibutuhkan
-└── README.md # Dokumentasi ini
+- app.py # Aplikasi utama (Streamlit)
+- train.py # Script training model AI
+- spam.csv # Dataset global (Bahasa Inggris)
+- email_spam_indo.csv # Dataset lokal (Bahasa Indonesia)
+- spam_model.pkl # Model AI hasil training
+- vectorizer.pkl # TF-IDF vectorizer
+- requirement.txt # Library yang dibutuhkan
+- README.md # Dokumentasi ini
