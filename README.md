@@ -36,7 +36,7 @@ cd AI-SpamEmail
 ```
 
 ### 2. (Opsional) Buat Virtual Environment
-Hapus venv yang lama dan buat baru karena direktori akan menyangkut ke venv lama
+Hapus venv yang lama dan buat baru karena direktori akan menyangkut ke direktori yang lama
 
 ```bash
 python -m venv venv
