@@ -31,8 +31,8 @@ Aplikasi web sederhana berbasis **Streamlit** untuk mendeteksi apakah isi sebuah
 ### 1. Clone Project
 
 ```bash
-git clone https://github.com/yourusername/spam-detector.git
-cd spam-detector
+git clone https://github.com/kotsuke/AI-SpamEmail.git
+cd AI-SpamEmail
 ```
 
 ### 2. (Opsional) Buat Virtual Environment
