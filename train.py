@@ -31,7 +31,7 @@ X_train_vec = vectorizer.fit_transform(X_train)
 model = MultinomialNB()
 model.fit(X_train_vec, y_train)
 
-# Save model dan vectorizer
+# menyimpan model dan vectorizer
 joblib.dump(model, "spam_model.pkl")
 joblib.dump(vectorizer, "vectorizer.pkl")
 
