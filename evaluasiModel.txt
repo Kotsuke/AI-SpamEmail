@@ -1,0 +1,12 @@
+Hasil evaluasi model yang dibuat pada train.py :
+📊 Evaluasi Model:
+              precision    recall  f1-score   support
+
+           0       0.98      0.98      0.98       254
+           1       0.99      0.98      0.98       274
+
+    accuracy                           0.98       528
+   macro avg       0.98      0.98      0.98       528
+weighted avg       0.98      0.98      0.98       528
+
+kesimpulan Model Cukup Presisi untuk Prediksi Spam
