@@ -40,7 +40,7 @@ source venv/bin/activate
 ```bash
 pip install -r requirement.txt
 ```
-Jika kalian memiliki GPU Nvidia kalian bisa menggunakan code dibawah ini untuk mempercepat proses instalasi kalau tidak akan menggunakan CPU.
+Jika kalian memiliki GPU Nvidia kalian bisa menggunakan code dibawah ini untuk mempercepat proses instalasi.
 ```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
