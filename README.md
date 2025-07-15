@@ -45,7 +45,7 @@ Jika kalian memiliki GPU Nvidia kalian bisa menggunakan code dibawah ini untuk m
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
-### 4. Retrain Model IndoBERT nya
+### 4. Retrain Model IndoBERT
 ```bash
 python train.py
 ```
