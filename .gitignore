@@ -1,1 +1,4 @@
 venv/
+indobert_spam_model/
+indobert_spam_tokenizer/
+results/

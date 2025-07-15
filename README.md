@@ -1,28 +1,17 @@
-# 📧 Deteksi Spam Email dengan AI (Naive Bayes + Streamlit)
+# 📧 Deteksi Spam Email dengan AI (IndoBERT + Streamlit)
 
-Aplikasi web sederhana berbasis **Streamlit** untuk mendeteksi apakah isi sebuah email tergolong **spam** atau **normal (ham)**. Model ini menggunakan algoritma **Multinomial Naive Bayes** dan dilatih dari kombinasi dataset **internasional (spam.csv)** dan **lokal Bahasa Indonesia (email_spam_indo.csv)**.
+Aplikasi web berbasis **Streamlit** untuk mendeteksi apakah sebuah email tergolong **spam** atau **normal (ham)**.  
+Model menggunakan **IndoBERT (Transformer Bahasa Indonesia)** yang sudah di-finetune menggunakan dataset kombinasi **lokal dan mirip spam**.
 
 ---
 
 ## 🚀 Fitur Utama
 
-- ✅ Prediksi apakah email termasuk spam atau tidak
-- 🌐 Bisa input teks langsung lewat web app
-- ⚡ Model ringan & cepat, cocok untuk demo/edukasi
-- 🇮🇩 Mendukung email Bahasa Indonesia & Inggris
-
----
-
-## 📂 Struktur Proyek
-- app.py # Aplikasi utama (Streamlit)
-- train.py # Script training model AI
-- spam.csv # Dataset global (Bahasa Inggris)
-- email_spam_indo.csv # Dataset lokal (Bahasa Indonesia)
-- spam_model.pkl # Model AI hasil training
-- vectorizer.pkl # TF-IDF vectorizer
-- requirement.txt # Library yang dibutuhkan
-- README.md # Dokumentasi ini
-
+- ✅ Prediksi email spam/ham dengan akurasi tinggi (berbasis IndoBERT)
+- 📚 Mendukung Bahasa Indonesia
+- 🌐 Aplikasi berbasis web (Streamlit)
+- 🧠 Model transformer finetuned dengan data lokal
+- ⚡ Bisa jalan di CPU atau GPU
 
 ---
 
@@ -51,8 +40,17 @@ source venv/bin/activate
 ```bash
 pip install -r requirement.txt
 ```
+Jika kalian memiliki GPU Nvidia kalian bisa menggunakan code dibawah ini untuk mempercepat proses instalasi kalau tidak akan menggunakan CPU.
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
 
-### 4. Jalankan Aplikasinya
+### 4. Retrain Model IndoBERT nya
+```bash
+python train.py
+```
+
+### 5. Jalankan Aplikasinya
 ```bash
 streamlit run app.py
 ```

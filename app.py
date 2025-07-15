@@ -1,32 +1,58 @@
+# app.py
 import streamlit as st
-import joblib
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+import numpy as np
 
-# Judul aplikasi
-st.set_page_config(page_title="Deteksi Spam Email", layout="centered")
-st.title("📧 Deteksi Spam Email dengan AI")
+# --- Konfigurasi UI ---
+st.set_page_config(page_title="📧 Deteksi Spam Email", layout="centered")
+st.markdown("<h1 style='text-align: center; color: #4A90E2;'>📧 Deteksi Spam Email</h1>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align: center; color: gray;'>Menggunakan model IndoBERT yang sudah dilatih</h4>", unsafe_allow_html=True)
+st.write("Masukkan isi email di bawah ini untuk memeriksa apakah itu SPAM atau bukan.")
 
-# Load model dan vectorizer
+# --- Load model & tokenizer ---
 @st.cache_resource
 def load_model():
-    model = joblib.load("spam_model.pkl")
-    vectorizer = joblib.load("vectorizer.pkl")
-    return model, vectorizer
+    tokenizer = AutoTokenizer.from_pretrained("indobert_spam_tokenizer")
+    model = AutoModelForSequenceClassification.from_pretrained("indobert_spam_model")
+    return tokenizer, model
 
-model, vectorizer = load_model()
+tokenizer, model = load_model()
 
-# Input dari pengguna
-st.write("Masukkan isi email untuk memeriksa apakah itu spam atau bukan.")
-input_email = st.text_area("Teks Email", height=200)
+# --- Input email ---
+with st.form(key="form_email"):
+    input_email = st.text_area(
+        "✉️ Tulis email kamu di sini:",
+        placeholder="Contoh: Selamat! Anda mendapatkan hadiah uang tunai 10 juta rupiah...",
+        height=200
+    )
+    submitted = st.form_submit_button("🔍 Deteksi Sekarang")
 
-# Tombol Prediksi
-if st.button("🔍 Deteksi"):
-    if input_email.strip() == "":
-        st.warning("⚠️ Silakan masukkan teks email terlebih dahulu.")
+# --- Deteksi Spam ---
+if submitted:
+    if not input_email.strip():
+        st.warning("⚠️ Silakan masukkan isi email terlebih dahulu.")
     else:
-        input_vector = vectorizer.transform([input_email])
-        result = model.predict(input_vector)
+        with st.spinner("🔍 Menganalisis email..."):
+            # Tokenisasi input
+            inputs = tokenizer(input_email, return_tensors="pt", padding=True, truncation=True, max_length=128)
+            outputs = model(**inputs)
 
-        if result[0] == 1:
-            st.error("💥 Hasil: Ini adalah SPAM!")
-        else:
-            st.success("✅ Hasil: Ini adalah email NORMAL.")
+            # Hitung probabilitas spam
+            probs = torch.softmax(outputs.logits, dim=1).detach().numpy()[0]
+            label = int(np.argmax(probs))
+            confidence = probs[label]
+
+            # Output hasil
+            if label == 1:
+                st.error(f"💥 Hasil: Ini adalah SPAM ❗️\n🧠 Probabilitas: {confidence:.2f}")
+            else:
+                st.success(f"✅ Hasil: Ini adalah email NORMAL 👍\n🧠 Probabilitas: {confidence:.2f}")
+
+
+# --- Footer Info ---
+st.markdown("---")
+st.markdown(
+    "<small>Model: <code>IndoBERT (indobenchmark/indobert-base-p1)</code> | Yusuf Dwi Saputra dan Subandrio</small>",
+    unsafe_allow_html=True
+)
