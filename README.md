@@ -40,7 +40,7 @@ source venv/bin/activate
 ```bash
 pip install -r requirement.txt
 ```
-Jika kalian memiliki GPU Nvidia Run code dibawah ini di PowerShell/Terminal untuk mempercepat processing.
+Jika kalian memiliki GPU Nvidia/AMD Run code dibawah ini di PowerShell/Terminal untuk mempercepat processing.
 ```bash
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
