@@ -8,7 +8,7 @@ import numpy as np
 st.set_page_config(page_title="📧 Deteksi Spam Email", layout="centered")
 st.markdown("<h1 style='text-align: center; color: #4A90E2;'>📧 Deteksi Spam Email</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align: center; color: gray;'>Menggunakan model IndoBERT yang sudah dilatih</h4>", unsafe_allow_html=True)
-st.write("Masukkan isi email di bawah ini untuk memeriksa apakah itu SPAM atau bukan.")
+st.markdown("<p style='text-align: center;'>Masukkan isi email di bawah ini untuk memeriksa apakah itu SPAM atau bukan.</p>", unsafe_allow_html=True)
 
 # --- Load model & tokenizer ---
 @st.cache_resource
@@ -51,8 +51,12 @@ if submitted:
 
 
 # --- Footer Info ---
-st.markdown("---")
-st.markdown(
-    "<small>Model: <code>IndoBERT (indobenchmark/indobert-base-p1)</code> | Yusuf Dwi Saputra dan Subandrio</small>",
-    unsafe_allow_html=True
-)
+st.markdown("""
+<hr style="margin-top:50px;">
+<div class="footer">
+    Model: <code>IndoBERT (indobenchmark/indobert-base-p1)</code> | Dibuat oleh 
+    <a href="https://github.com/YusufDW1" target="_blank">Yusuf Dwi Saputra</a> dan 
+    <a href="https://github.com/Kotsuke" target="_blank">Subandrio</a><br>
+</div>
+""", unsafe_allow_html=True)
+
